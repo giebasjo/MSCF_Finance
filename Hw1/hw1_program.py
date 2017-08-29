@@ -35,8 +35,6 @@ rtail_rates = list()
 with open('Industry8_data.csv', 'r') as dataFile:
 
     header_line = dataFile.readline()
-    header_list = header_line.strip().split(",")
-
     for line in dataFile:
 
         L = line.strip().split(",")
@@ -75,14 +73,3 @@ plt.ylabel("Log Returns")
 plt.title("Log Returns (8 Assets, Market, Risk-Free Rate) over 1975-2017")
 plt.savefig("hw1_image1.png")
 plt.show()
-
-
-
-
-
-
-
-
-
-
-

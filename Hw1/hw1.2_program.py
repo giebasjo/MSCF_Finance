@@ -28,7 +28,7 @@ def ExpRet_Var_and_Corr( l, bigl ):
     corr_list = list()
     for elm in bigl:
 
-        corr_list.append( np.corrcoef(l, elm, ddof=0)[0][1] )
+        corr_list.append( round(np.corrcoef(l, elm, ddof=0)[0][1], 3) )
 
     return [curr_exp_return, variance, corr_list]
 
@@ -102,18 +102,20 @@ fin_cer, fin_var, fin_corr = ExpRet_Var_and_Corr(fin_rates, assetList)
 ## Rtail
 rtail_cer, rtail_var, rtail_corr = ExpRet_Var_and_Corr(rtail_rates, assetList)
 
+cov_matrix = list()
+cov_matrix.append(market_corr)
+cov_matrix.append(aero_corr)
+cov_matrix.append(guns_corr)
+cov_matrix.append(steel_corr)
+cov_matrix.append(ships_corr)
+cov_matrix.append(beer_corr)
+cov_matrix.append(toys_corr)
+cov_matrix.append(fin_corr)
+cov_matrix.append(rtail_corr)
 
-
-
-
-
-
-
-
-
-
-
-
+## print covariance matrix (even though this is truly unneeded)
+print('\n'.join([' '.join(['{:4}'.format(item) for item in row])
+      for row in cov_matrix]))
 
 
 

@@ -4,10 +4,10 @@ MSCF Finance:
 
 Group:
 
-    Jordan Giebas
     Justin Skillman
     Andrew Previc
-    Kyle Beye
+    Kyle Beyer
+    Jordan Giebas
 
 Date:
 

@@ -20,13 +20,9 @@ Date:
 from datetime import datetime
 import numpy as np
 
-def curr_exp_return( l ):
+def ExpRet_Var_and_Corr( l, bigl ):
 
-    return 12*np.mean(l) + 0.01
-
-
-def Var_and_Corr( l, bigl ):
-
+    curr_exp_return = 12*np.mean(l) + 0.01
     variance = np.var(l)
 
     corr_list = list()
@@ -34,7 +30,7 @@ def Var_and_Corr( l, bigl ):
 
         corr_list.append( np.corrcoef(l, elm, ddof=0)[0][1] )
 
-    return [variance, corr_list]
+    return [curr_exp_return, variance, corr_list]
 
 ## Define containers for needed quantitites
 rf_rates = list()
@@ -80,69 +76,31 @@ assetList.append(rtail_rates)
 
 
 ## Market
-market_var, market_corr = Var_and_Corr(market_rates, assetList)
+market_cer, market_var, market_corr = ExpRet_Var_and_Corr(market_rates, assetList)
 
 ## Aero
-aero_var, aero_corr = Var_and_Corr(aero_rates, assetList)
+aero_cer, aero_var, aero_corr = ExpRet_Var_and_Corr(aero_rates, assetList)
 
 ## Guns
-guns_var, guns_corr = Var_and_Corr(guns_rates, assetList)
+guns_cer, guns_var, guns_corr = ExpRet_Var_and_Corr(guns_rates, assetList)
 
 ## Steel
-steel_var, steel_corr = Var_and_Corr(steel_rates, assetList)
+steel_cer, steel_var, steel_corr = ExpRet_Var_and_Corr(steel_rates, assetList)
 
 ## Ships
-ships_var, ships_corr = Var_and_Corr(ships_rates, assetList)
+ships_cer, ships_var, ships_corr = ExpRet_Var_and_Corr(ships_rates, assetList)
 
 ## Beer
-beer_var, beer_corr = Var_and_Corr(beer_rates, assetList)
+beer_cer, beer_var, beer_corr = ExpRet_Var_and_Corr(beer_rates, assetList)
 
 ## Toys
-toys_var, toys_corr = Var_and_Corr(toys_rates, assetList)
+toys_cer, toys_var, toys_corr = ExpRet_Var_and_Corr(toys_rates, assetList)
 
 ## Fin
-fin_var, fin_corr = Var_and_Corr(fin_rates, assetList)
+fin_cer, fin_var, fin_corr = ExpRet_Var_and_Corr(fin_rates, assetList)
 
 ## Rtail
-rtail_var, rtail_corr = Var_and_Corr(rtail_rates, assetList)
-
-print(aero_corr)
-print(rtail_corr)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-Going to get the current expected return
-for each of the different assets.
-cer == curent expected return
-
-
-market_cer = curr_exp_return(market_rates)
-aero_cer = curr_exp_return(aero_rates)
-guns_cer = curr_exp_return(guns_rates)
-steel_cer = curr_exp_return(steel_rates)
-ship_cer = curr_exp_return(ships_rates)
-beer_cer = curr_exp_return(beer_rates)
-toy_cer = curr_exp_return(toys_rates)
-fin_cer = curr_exp_return(fin_rates)
-rtail_cer = curr_exp_return(rtail_rates)
-
-print(np.corrcoef(market_rates, aero_rates, ddof=0)[0][1])
-print(np.corrcoef(market_rates, guns_rates, ddof=0)[0][1])
-
-
-"""
+rtail_cer, rtail_var, rtail_corr = ExpRet_Var_and_Corr(rtail_rates, assetList)
 
 
 

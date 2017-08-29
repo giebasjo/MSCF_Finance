@@ -19,6 +19,11 @@ Date:
 #from itertools import accumulate ## Use this to get the sum of elements in an iterable
 from datetime import datetime
 import numpy as np
+from math import sqrt
+
+def SharpeRatio( asset_expReturn, asset_var, market_r_r ):
+
+    return (asset_expReturn - market_rates)/math.sqrt(asset_var)
 
 def ExpRet_Var_and_Corr( l, bigl ):
 
@@ -74,33 +79,46 @@ assetList.append(toys_rates)
 assetList.append(fin_rates)
 assetList.append(rtail_rates)
 
+bigList = list()
 
 ## Market
 market_cer, market_var, market_corr = ExpRet_Var_and_Corr(market_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(market_rates, assetList))
 
 ## Aero
 aero_cer, aero_var, aero_corr = ExpRet_Var_and_Corr(aero_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(aero_rates, assetList))
 
 ## Guns
 guns_cer, guns_var, guns_corr = ExpRet_Var_and_Corr(guns_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(guns_rates, assetList))
 
 ## Steel
 steel_cer, steel_var, steel_corr = ExpRet_Var_and_Corr(steel_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(steel_rates, assetList))
 
 ## Ships
 ships_cer, ships_var, ships_corr = ExpRet_Var_and_Corr(ships_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(ships_rates, assetList))
 
 ## Beer
 beer_cer, beer_var, beer_corr = ExpRet_Var_and_Corr(beer_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(beer_rates, assetList))
 
 ## Toys
 toys_cer, toys_var, toys_corr = ExpRet_Var_and_Corr(toys_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(toys_rates, assetList))
 
 ## Fin
 fin_cer, fin_var, fin_corr = ExpRet_Var_and_Corr(fin_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(fin_rates, assetList))
 
 ## Rtail
 rtail_cer, rtail_var, rtail_corr = ExpRet_Var_and_Corr(rtail_rates, assetList)
+bigList.append(ExpRet_Var_and_Corr(rtail_rates, assetList))
+
+
+
 
 cov_matrix = list()
 cov_matrix.append(market_corr)
@@ -116,6 +134,8 @@ cov_matrix.append(rtail_corr)
 ## print covariance matrix (even though this is truly unneeded)
 print('\n'.join([' '.join(['{:4}'.format(item) for item in row])
       for row in cov_matrix]))
+
+
 
 
 

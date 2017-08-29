@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 from itertools import accumulate ## Use this to get the sum of elements in an iterable
 from datetime import datetime
 
-## Overall structure for the entire time series
+## Define containers for needed quantitites
 date_list = list()
 rf_rates = list()
 market_rates = list()
@@ -42,8 +42,6 @@ with open('Industry8_data.csv', 'r') as dataFile:
         data_date = L[1] + "-" + L[2] + "-" + L[0]
         date = datetime.strptime(data_date, '%m-%d-%Y').date()
         date_list.append(date)
-
-        #date_to_data[date] = L[3:]
 
         rf_rates.append(float(L[3]))
         market_rates.append(float(L[4]))

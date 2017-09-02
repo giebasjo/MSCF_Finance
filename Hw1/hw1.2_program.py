@@ -2,11 +2,8 @@
 MSCF Finance:
     Homework 1
 
-Group:
+Author:
 
-    Justin Skillman
-    Andrew Previc
-    Kyle Beyer
     Jordan Giebas
 
 Date:

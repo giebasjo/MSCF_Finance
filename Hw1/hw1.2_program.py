@@ -25,7 +25,7 @@ def SharpeRatio( asset_expReturn, asset_var, market_r_r ):
 
 def ExpRet_Var_and_Corr( l, bigl ):
 
-    ## Quantities of interest
+    # Quantities of interest
     curr_exp_return = round(float(12*np.mean(l) + 0.01), 3)
     avg_monthly_variance = np.var(l)
     annual_variance = round(float(12*avg_monthly_variance),3)
@@ -39,7 +39,7 @@ def ExpRet_Var_and_Corr( l, bigl ):
 
     return [sharpe_ratio, curr_exp_return, annual_variance, corr_list]
 
-## Define containers for needed quantitites
+# Define containers for needed quantitites
 rf_rates = list()
 market_rates = list()
 aero_rates = list()
@@ -68,8 +68,8 @@ with open('Industry8_data.csv', 'r') as dataFile:
         fin_rates.append(float(L[20]))
         rtail_rates.append(float(L[21]))
 
-## Define assetList, list of lists
-## contain the lists of each of the assets
+# Define assetList, list of lists
+# contain the lists of each of the assets
 assetList = list()
 assetList.append(market_rates)
 assetList.append(aero_rates)
@@ -84,8 +84,8 @@ assetList.append(rtail_rates)
 bigList = list()
 
 
-### Question 2: Parts a,b,c
-### Get needed quantities
+# Question 2: Parts a,b,c
+# Get needed quantities
 
 #print("\nSHARPE RATIOS\n")
 ## Market
@@ -160,9 +160,29 @@ for i in range(0,1001):
     temp = [i, 1.0-i]
     weights.append(temp)
 
+
+# Building of the Correlation Matrix
+
+cov_matrix = list()
+cov_matrix.append(market_corr)
+cov_matrix.append(aero_corr)
+cov_matrix.append(guns_corr)
+cov_matrix.append(steel_corr)
+cov_matrix.append(ships_corr)
+cov_matrix.append(beer_corr)
+cov_matrix.append(toys_corr)
+cov_matrix.append(fin_corr)
+cov_matrix.append(rtail_corr)
+
+x = np.array(cov_matrix)
+m = np.asmatrix(x)
+print(m)
+
+
+"""
 mean_returns = list()
 risk = list()
-sharpe_ratio_to_weights = dict() ## Assuming they will all be unique (ehh....)
+sharpe_ratio_to_weights = dict()  # Assuming they will all be unique (ehh....)
 for w in weights:
 
     delta_beer = w[0]
@@ -191,7 +211,7 @@ plt.ylabel("Expected Returns")
 plt.title("Portfolio Frontier: Weights Distributed between Beer, Finance")
 plt.savefig("hw1_image2.png")
 plt.show()
-
+"""
 
 
 

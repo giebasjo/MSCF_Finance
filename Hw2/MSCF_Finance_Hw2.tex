@@ -152,7 +152,7 @@ Lucas Bahia
 		\end{center}
 		%
 		We must run the following regression,
-		$$ r_{i,t} - r_{f} = \alpha{i} + \beta_{i}(r_{m,t} - r_{f}) + \epsilon_{i} $$
+		$$ r_{i,t} - r_{f} = \alpha_{i} + \beta_{i}(r_{m,t} - r_{f}) + \epsilon_{i} $$
 		%
 		We use the data analysis feature in Microsoft Excel to run the regressions, and we summarize our findings in the following table. For convenience,
 		allow $y = r_{i,t} - r_{f}$ and $x = r_{m,t} - r_{f}$. 
@@ -218,8 +218,45 @@ Lucas Bahia
 		\end{center}
 		 
 		
-			
+\subsection{Question 4: Fama-French Three Factor Model}
+
+
+	\subsection{Part (a)}
 	
+		For each of the industries we've been working with, and the data provided, we perform the following regression and summarize the results
+		in the following table. 
+		%
+		$$ r_{i,t} - r_{f} = \alpha_{i} + \beta_{i,m}(r_{m,t} - r_{f}) + \beta_{i,smb}(r_{smb,t} - r_{f}) + \beta_{i,hml}(r_{hml,t} - r_{f}) + \epsilon_{i} $$			
+		%
+		\begin{center}
+ 		\begin{tabular}{||c| c||} 
+ 		\hline
+ 		 Industry &  Regressed Equation \\ [0.5ex] 
+ 		\hline \hline
+ 		$Aero$ & $y = 0.001946387 + 0.507397279\beta_{m} + 0.142068084\beta_{smb} - 0.276827754\beta_{hml} $  \\ 
+ 		\hline
+ 		$Guns$ & $y = 0.003255019 + 0.365494066\beta_{m} + 0.209652324\beta_{smb} - 0.359685719\beta_{hml} $ \\
+ 		\hline
+ 		$Steel$ & $y = 0.006117535 + 0.450168847\beta_{m} - 0.08808312\beta_{smb} - 0.253781436\beta_{hml} $  \\
+ 		\hline
+ 		$Ships$ & $y = 0.004508555 + 0.390859388\beta_{m} + 0.095163034\beta_{smb} - 0.353268272\beta_{hml}$  \\
+ 		\hline
+ 		$Beer$ & $y = 0.001532498 + 0.516389875\beta_{m} + 0.30683985\beta_{smb} - 0.214640562\beta_{hml}$  \\
+ 		\hline
+ 		$Toys$ & $y = 0.004604494 + 0.465072179\beta_{m} - 0.001811019\beta_{smb} - 0.253540929\beta_{hml}$ \\
+ 		\hline
+ 		$Fin$ & $y = 0.001966042 + 0.621533385\beta_{m} + 0.002698543\beta_{smb} - 0.208226521\beta_{hml}$ \\
+ 		\hline
+ 		$Rtail$ & $y = 0.001538837 + 0.644125411\beta_{m} + 0.089195594\beta_{smb} - 0.141109902\beta_{hml}$ \\ 
+ 		\hline
+		\end{tabular}
+		\end{center}
+		\newpage
+	\subsection{Part (b)}
+	
+		Again, for similar reasons previously discussed, the $\alpha$ values should be zero, which is quite consistent with our multivariate regression results. 
+		Nearly all of the $\alpha$ values that we see here are on the order of $10^{-3}$, which is approximately zero.
+
 	
 \end{document}
 

@@ -7,3 +7,11 @@
 
 """
 
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("hw3_data.csv")
+
+print(df[1,1])
+
+

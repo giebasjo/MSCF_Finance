@@ -1,0 +1,228 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+
+\title{MSCF Finance\\ Homework Set 2}
+\author{
+Jordan Giebas \\
+Daniel Rojas Coy \\ 
+Lucas Bahia 
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Question 1: \textit{Consumption and Savings}}
+
+	\subsection{Part (a)}
+	
+		\begin{center}
+ 		\begin{tabular}{||c c c||} 
+ 		\hline
+ 		 & Today (t=0) &  One Year (t=1) \\ [0.5ex] 
+ 		\hline \hline
+ 		Income & 1000 & 0 \\ 
+ 		\hline
+ 		Trade  & (237.5) & 250 \\
+ 		\hline
+ 		 Consume & 762.5 & 250  \\
+ 		\hline
+		\end{tabular}
+		\end{center}
+		
+	\subsection{Part (b)}
+	
+		Allow $b$ to represent the number of bonds invested in. At $t=0$, we see the consumption $c_{0} = 1000 - 95b$, and 
+		at $t=1$, the consumption $c_{1} = 100b$. Following the Utility formula presented in the handout, we would like to maximize
+		the following function. 
+		%
+		$$ U(c) = log(c_{0}) + 0.98log(c_{1}) $$
+		%
+		Plugging in $c_{0}$ and $c_{1}$, we must optimize 
+		%
+		$$ U(b) = log(1000 - 95b) + 0.98log(100b) $$
+		% 
+		\\		
+		%
+		We set the derivative of $U(b)$ equal to zero, and solve for $b$.
+		%
+		$$ 0 = \frac{dU}{db} = \frac{98}{100b} - \frac{95}{1000 - 95b} $$
+		%
+		We find that $b = 5.21$. 
+		
+		\subsection{Part (c)}
+		
+			\begin{center}
+ 			\begin{tabular}{||c c c||} 
+ 			\hline
+ 			 & Today (t=0) &  One Year (t=1) \\ [0.5ex] 
+ 			\hline \hline
+ 			Income & 0 & 1052.6 \\ 
+ 			\hline
+ 			Trade  & 95$b$ & -100$b$ \\
+ 			\hline
+ 			 Consume & 95$b$ & 1052.6 - 100$b$  \\
+ 			\hline
+			\end{tabular}
+			\end{center}
+			%
+			In the same fashion, we would like to find the $b$ that maximizes the utility function but with $c_{0} = 95b$ and $c_{1} = 1052.6 - 100b$.
+			%
+			$$  0 = \frac{dU}{db} = \frac{1}{b} - \frac{98}{1052.6 - 100b} $$
+			% 
+			We find that $b = 5.31616$. 
+			
+		\subsection{Part (d)}
+		
+			As of 9/15/2017, the current US 1 year T-Bill rate is 1.30\%\. Therefore, assuming we buy 2.5 bonds again, we resolve Part (a) using the current
+			price of the bond as $P_{0} = \frac{100}{1.0130} = 98.72$\$. We then have the following,
+			\begin{center}
+ 			\begin{tabular}{||c c c||} 
+ 			\hline
+ 			 & Today (t=0) &  One Year (t=1) \\ [0.5ex] 
+ 			\hline \hline
+ 			Income & 1000 & 0 \\ 
+ 			\hline
+ 			Trade  & (246.8) & 250 \\
+ 			\hline
+ 			 Consume & 753.2 & 250  \\
+ 			\hline
+			\end{tabular}
+			\end{center}
+				
+		\subsection{Part (e)}
+		
+			Something about a convex function here........ write later...
+			
+		
+\section{Question 2: \textit{Means and Variances}}
+
+	\subsection{Part (a)}
+	
+		We use the following equations, and the information provided, to determine the expected return, standard devation, Sharpe Ratio, and Beta of the portfolio. 
+		%
+		$$ \mathbb{E}[r_{p}] = \sum_{i} w_{i} r_{i} $$
+		$$ Var(r_{p}) = w_{A}Var(r_{A}) + w_{B}Var(r_{B}) + 2w_{A}w_{B}Cov(r_{A},r_{B}) $$
+		$$ Sharpe Ratio = \frac{\mathbb{E}[r_{p}] - r_{f}}{\sigma_{p}} $$
+		$$ \beta_{p} = \sum_{i} w_{i} \beta_{i} $$
+		%
+		We summarize the findings in the table below. 
+		%
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		 Metric & Numerical Value \\ [0.5ex] 
+ 		\hline \hline
+ 		$\mathbb{E}[r_{p}]$ & 0.0728 \\ 
+ 		\hline
+ 		$Var(r_{p})$ & 0.17088 \\
+ 		\hline
+ 		$Sharpe Ratio$ & fdsaf  \\
+ 		\hline
+ 		$\beta_{p}$ & fdsaf  \\
+ 		\hline
+		\end{tabular}
+		\end{center}
+
+	\subsection{Part (b)}
+	
+		CAPM establishes a linear relationships between the expected return on the asset and the expected excess return of the market as follows
+		%
+		$$ \mathbb{E}[r_{i}] = r_{f} + \beta_{i}(\mathbb{E}[r_{m}] - r_{f}) $$
+		%
+		Let's check that CAPM holds for the assets A and B.\\
+		%
+		\begin{center}
+		Stock A: $0.0680 \stackrel{?}{=} 0.02 + 0.80(0.08-0.02) = 0.0680$ \\ 
+		Stock B: $0.1040 \stackrel{?}{=} 0.02 + 1.40(0.08-0.02) = 0.1040$
+		\end{center}
+		%
+		So as we can see, the CAPM paradigm holds for these assets under the information provided. 
+		
+\section{Question 3: \textit{CAPM}}
+
+	\subsection{Part (a)}
+		
+		For each of the industries
+		%
+		\begin{center}
+			$[Aero, Guns, Steel, Ships, Beer, Toys, Fin, Rtail]$
+		\end{center}
+		%
+		We must run the following regression,
+		$$ r_{i,t} - r_{f} = \alpha{i} + \beta_{i}(r_{m,t} - r_{f}) + \epsilon_{i} $$
+		%
+		We use the data analysis feature in Microsoft Excel to run the regressions, and we summarize our findings in the following table. For convenience,
+		allow $y = r_{i,t} - r_{f}$ and $x = r_{m,t} - r_{f}$. 
+		%
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		 Industry &  Regressed Equation \\ [0.5ex] 
+ 		\hline \hline
+ 		$Aero$ & $y = 1.11339631x + 0.002110029$  \\ 
+ 		\hline
+ 		$Guns$ & $y = 0.761863487x + 0.004183162$ \\
+ 		\hline
+ 		$Steel$ & $y = 1.406022569x - 0.006847625$  \\
+ 		\hline
+ 		$Ships$ & $y = 1.1128971x - 0.001077632$  \\
+ 		\hline
+ 		$Beer$ & $y = 0.70326213x + 0.004168411$  \\
+ 		\hline
+ 		$Toys$ & $y = 1.117458206 - 0.002335538$ \\
+ 		\hline
+ 		$Fin$ & $y = 1.25111787x - 0.000151558$ \\
+ 		\hline
+ 		$Rtail$ & $y = 0.981050605x + 0.001276015$ \\ 
+ 		\hline
+		\end{tabular}
+		\end{center}
+		
+	\subsection{Part(b)}
+	
+		If CAPM is correct, the $\alpha_{i}$ term should be zero for each of the industries, because if there is alpha then, by the equilibrium argument, the 
+		demand would increase, the supply would therefore drop, and the price would rise such that it eliminates the excess return or the alpha. In each of the 
+		regressed equations in the table above, the alpha values are all on the order of magnitude $10^{-3}$ or $10^{-4}$, approximately zero. Therefore, 
+		the CAPM paradigm fits the data well. 
+		\newpage
+		%
+	\subsection{Part (c)}
+	
+		The following table ranks the industry be descending $\beta$. 
+		%
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		 Industry &  Regressed Equation \\ [0.5ex] 
+ 		\hline \hline
+ 		$Steel$ & $1.406022569$  \\ 
+ 		\hline
+ 		$Fin$ & $1.25111787$ \\
+ 		\hline
+ 		$Toys$ & $1.117458206$  \\
+ 		\hline
+ 		$Aero$ & $1.11339631$  \\
+ 		\hline
+ 		$Ships$ & $1.1128971$  \\
+ 		\hline
+ 		$Rtail$ & $0.981050605$ \\
+ 		\hline
+ 		$Guns$ & $0.761863487$ \\
+ 		\hline
+ 		$Beer$ & $0.70326213$ \\ 
+ 		\hline
+		\end{tabular}
+		\end{center}
+		 
+		
+			
+	
+	
+\end{document}
+
+
+
+

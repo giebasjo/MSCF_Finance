@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{amssymb}
+\usepackage{booktabs}
 
 \title{MSCF Finance\\ Homework Set 2}
 \author{
@@ -94,8 +95,9 @@ Lucas Bahia
 				
 		\subsection{Part (e)}
 		
-			Something about a convex function here........ write later...
-			
+			Assume an individual would like to save some fixed amount of money $x$. If the rate were lower, the individual would need to save more at the current time
+			in order to generate $x$ in the future.. On the contrary, if the rate were higher, the individual wouldn't need to save as much in order to generate $x$ in the 
+			future. 			
 		
 \section{Question 2: \textit{Means and Variances}}
 
@@ -117,11 +119,11 @@ Lucas Bahia
  		\hline \hline
  		$\mathbb{E}[r_{p}]$ & 0.0728 \\ 
  		\hline
- 		$Var(r_{p})$ & 0.17088 \\
+ 		$Var(r_{p})$ & 0.34176 \\
  		\hline
- 		$Sharpe Ratio$ & fdsaf  \\
+ 		$Sharpe Ratio$ & 0.1534494  \\
  		\hline
- 		$\beta_{p}$ & fdsaf  \\
+ 		$\beta_{p}$ & 0.88  \\
  		\hline
 		\end{tabular}
 		\end{center}
@@ -141,6 +143,62 @@ Lucas Bahia
 		%
 		So as we can see, the CAPM paradigm holds for these assets under the information provided. 
 		
+	\subsection{Part (c)}
+	
+		Following a similar procedure from Homework 1, we determined the weights for the optimal market portolio. We then establish the Capital Market Line. 
+		Using the CML, we then solve for the weights by calibrating to the expected return of the current portfolio. The optimal weights and the metrics of 
+		interest (Expected Return, Standard Deviation, Sharpe Ratio, and Beta) are summarized in the tables below.
+		%
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		$w_{A}$ & 0.768	 \\ 
+ 		\hline
+ 		$w_{B}$ & 0.189\\
+ 		\hline
+ 		$w_{r_{f}}$ & 0.041  \\
+ 		\hline
+		\end{tabular}
+		\end{center}
+		%
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		 Metric & Numerical Value \\ [0.5ex] 
+ 		\hline \hline
+ 		$\mathbb{E}[r_{p}]$ & 0.0728 \\ 
+ 		\hline
+ 		$Var(r_{p})$ & 0.2759 \\
+ 		\hline
+ 		$Sharpe Ratio$ & 0.1914  \\
+ 		\hline
+ 		$\beta_{p}$ & 0.88  \\
+ 		\hline
+		\end{tabular}
+		\end{center}
+		
+	\subsection{Part (d)}
+	
+		We would suggest the client to buy at least some of the asset if it is uncorrelated with the market, since the diversification will probably increase the risk adjusted returns.
+		The maximum price should be a price that have the returns higher than the risk free rate. Since it will be above the risk free rate and its returns are uncorrelated with the other 					assets adding some of this asset will improve the efficient frontier. Specifically,
+		%
+		$$ \frac{157.5}{P_{0}} = (1+ 0.02) \Rightarrow P_{0} = 154.41 $$
+		
+	\subsection{Part (e)}
+		
+		Using the definition of the Sharpe Ratio, this is straightforward with $P_{0} = 150$
+		%
+		$$ Sharpe Ratio = \frac{\mathbb{E}[r_{p}] - r_{f}}{\sigma_{p}} = \frac{(\frac{157.5}{150}) - 1}{23.848} = 0.001257967  $$
+		%
+	
+	\subsection{Part (f)}
+	
+		Since the Lumber prices are correlated this means that we can generate the returns combining market assets. Therefore, we would at least need the return defined by 
+		the Efficient Frontier of the portfolio of assets A and B. We can use the solver to find the weights of assets that give the $\sigma = 23.848$
+		with the weights we can find the return needed. We found the expected return on the Efficient Frontier corresponding to when $\sigma = 23.848$ to be 
+		$\mu = 1.0772$. With this return in mind, much like in Part (d), we determine the initial price that will generate this return. We find that $P_{0} = \$75.823$. 
+		
+		
 \section{Question 3: \textit{CAPM}}
 
 	\subsection{Part (a)}
@@ -154,29 +212,28 @@ Lucas Bahia
 		We must run the following regression,
 		$$ r_{i,t} - r_{f} = \alpha_{i} + \beta_{i}(r_{m,t} - r_{f}) + \epsilon_{i} $$
 		%
-		We use the data analysis feature in Microsoft Excel to run the regressions, and we summarize our findings in the following table. For convenience,
-		allow $y = r_{i,t} - r_{f}$ and $x = r_{m,t} - r_{f}$. 
+		We use the data analysis feature in Microsoft Excel to run the regressions, and we summarize our findings in the following table. 
 		%
 		\begin{center}
- 		\begin{tabular}{||c c||} 
+ 		\begin{tabular}{||c c c||} 
  		\hline
- 		 Industry &  Regressed Equation \\ [0.5ex] 
+ 		 Industry &  $\beta_{i,m}$ & $\alpha_{i}$ \\ [0.5ex] 
  		\hline \hline
- 		$Aero$ & $y = 1.11339631x + 0.002110029$  \\ 
+ 		$Aero$ & $1.11339631$ & $0.002110029$  \\ 
  		\hline
- 		$Guns$ & $y = 0.761863487x + 0.004183162$ \\
+ 		$Guns$ & $0.761863487$ & $0.004183162$ \\
  		\hline
- 		$Steel$ & $y = 1.406022569x - 0.006847625$  \\
+ 		$Steel$ & $1.406022569$  & $-0.006847625$  \\
  		\hline
- 		$Ships$ & $y = 1.1128971x - 0.001077632$  \\
+ 		$Ships$ & $1.1128971$ & $-0.001077632$  \\
  		\hline
- 		$Beer$ & $y = 0.70326213x + 0.004168411$  \\
+ 		$Beer$ & $0.70326213$ & $0.004168411$  \\
  		\hline
- 		$Toys$ & $y = 1.117458206 - 0.002335538$ \\
+ 		$Toys$ & $1.117458206$ & $-0.002335538$ \\
  		\hline
- 		$Fin$ & $y = 1.25111787x - 0.000151558$ \\
+ 		$Fin$ & $1.25111787$ & $-0.000151558$ \\
  		\hline
- 		$Rtail$ & $y = 0.981050605x + 0.001276015$ \\ 
+ 		$Rtail$ & $0.981050605$ & $0.001276015$ \\ 
  		\hline
 		\end{tabular}
 		\end{center}
@@ -187,16 +244,15 @@ Lucas Bahia
 		demand would increase, the supply would therefore drop, and the price would rise such that it eliminates the excess return or the alpha. In each of the 
 		regressed equations in the table above, the alpha values are all on the order of magnitude $10^{-3}$ or $10^{-4}$, approximately zero. Therefore, 
 		the CAPM paradigm fits the data well. 
-		\newpage
 		%
 	\subsection{Part (c)}
 	
-		The following table ranks the industry be descending $\beta$. 
+		The following table ranks the industry be descending $\beta_{i,m}$. 
 		%
 		\begin{center}
  		\begin{tabular}{||c c||} 
  		\hline
- 		 Industry &  Regressed Equation \\ [0.5ex] 
+ 		 Industry &  $\beta_{i,m}$ \\ [0.5ex] 
  		\hline \hline
  		$Steel$ & $1.406022569$  \\ 
  		\hline
@@ -216,10 +272,9 @@ Lucas Bahia
  		\hline
 		\end{tabular}
 		\end{center}
-		 
-		
-\subsection{Question 4: Fama-French Three Factor Model}
-
+	
+	
+\section{Question 4: Fama-French Three Factor Model}
 
 	\subsection{Part (a)}
 	
@@ -228,36 +283,59 @@ Lucas Bahia
 		%
 		$$ r_{i,t} - r_{f} = \alpha_{i} + \beta_{i,m}(r_{m,t} - r_{f}) + \beta_{i,smb}(r_{smb,t} - r_{f}) + \beta_{i,hml}(r_{hml,t} - r_{f}) + \epsilon_{i} $$			
 		%
-		\begin{center}
- 		\begin{tabular}{||c| c||} 
- 		\hline
- 		 Industry &  Regressed Equation \\ [0.5ex] 
- 		\hline \hline
- 		$Aero$ & $y = 0.001946387 + 0.507397279\beta_{m} + 0.142068084\beta_{smb} - 0.276827754\beta_{hml} $  \\ 
- 		\hline
- 		$Guns$ & $y = 0.003255019 + 0.365494066\beta_{m} + 0.209652324\beta_{smb} - 0.359685719\beta_{hml} $ \\
- 		\hline
- 		$Steel$ & $y = 0.006117535 + 0.450168847\beta_{m} - 0.08808312\beta_{smb} - 0.253781436\beta_{hml} $  \\
- 		\hline
- 		$Ships$ & $y = 0.004508555 + 0.390859388\beta_{m} + 0.095163034\beta_{smb} - 0.353268272\beta_{hml}$  \\
- 		\hline
- 		$Beer$ & $y = 0.001532498 + 0.516389875\beta_{m} + 0.30683985\beta_{smb} - 0.214640562\beta_{hml}$  \\
- 		\hline
- 		$Toys$ & $y = 0.004604494 + 0.465072179\beta_{m} - 0.001811019\beta_{smb} - 0.253540929\beta_{hml}$ \\
- 		\hline
- 		$Fin$ & $y = 0.001966042 + 0.621533385\beta_{m} + 0.002698543\beta_{smb} - 0.208226521\beta_{hml}$ \\
- 		\hline
- 		$Rtail$ & $y = 0.001538837 + 0.644125411\beta_{m} + 0.089195594\beta_{smb} - 0.141109902\beta_{hml}$ \\ 
- 		\hline
-		\end{tabular}
-		\end{center}
-		\newpage
+		\begin{table}[H]
+ 		 \centering
+  		  \begin{tabular}{c|cccc}
+   		       & $\alpha$ & $\beta_{Market}$ & $\beta_{SMB}$ & $\beta_{HML}$ \\
+  		 		 \midrule
+  		  		Aero  & 0.001 & 1.164 & -0.018 & 0.307 \\
+    			Guns  & 0.003 & 0.818 & 0.050 & 0.417 \\
+    			Steel & -0.008 & 1.372 & 0.472 & 0.313 \\
+    			Ships & -0.003 & 1.151 & 0.214 & 0.488 \\
+    			Beer  & 0.004 & 0.750 & -0.209 & 0.065 \\
+    			Toys  & -0.004 & 1.092 & 0.348 & 0.233 \\
+    			Finance & -0.001 & 1.269 & 0.106 & 0.234 \\
+  		   	    Retail & 0.001 & 0.980 & 0.047 & 0.050 \\
+  			  \end{tabular}%
+ 			\label{tab:addlabel}%
+			\end{table}%
+
 	\subsection{Part (b)}
 	
 		Again, for similar reasons previously discussed, the $\alpha$ values should be zero, which is quite consistent with our multivariate regression results. 
 		Nearly all of the $\alpha$ values that we see here are on the order of $10^{-3}$, which is approximately zero.
-
+		
+	\subsection{Part (c)}
 	
+		Although there are multiple $\beta$ factors here, to establish an ordering of riskiness, we summed the coefficients of all the factors for each of the 
+		industry and then reported them in descending order. From this, we determine that $Beer$ is the most risky, but $Rtail$ is not far behind. The following
+		table summarizes these findings.  	
+		%		
+		\begin{center}
+ 		\begin{tabular}{||c c||} 
+ 		\hline
+ 		 Industry &  $\sum_{k}\beta_{i,k}$ \\ [0.5ex] 
+ 		\hline \hline
+ 		$Beer$ & $0.6085$  \\ 
+ 		\hline
+ 		$Rtail$ & $0.5922$ \\
+ 		\hline
+ 		$Fin$ & $0.4160$  \\
+ 		\hline
+ 		$Aero$ & $0.3726$  \\
+ 		\hline
+ 		$Guns$ & $0.2154$  \\
+ 		\hline
+ 		$Toys$ & $0.2097$ \\
+ 		\hline
+ 		$Ships$ & $0.1327$ \\
+ 		\hline
+ 		$Steel$ & $0.1083$ \\ 
+ 		\hline
+		\end{tabular}
+		\end{center}
+		%
+		
 \end{document}
 
 
